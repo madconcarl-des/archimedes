@@ -1,0 +1,73 @@
+# Dockerignore file for Archimedes Platform
+
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation (keep minimal)
+*.md
+!README.md
+*.html
+*.url
+
+# Test and development
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Claude CLI
+.claude/
+
+# Deployment configs (not needed inside container)
+.dockerignore
+docker-compose.yml
+
+# Governance and docs (reduce image size)
+governance/
+docs/architecture/
+docs/GLM_*.md
+
+# Proof of concepts not needed for deployment
+proof-of-concepts/poc-2-aml-detection/
+proof-of-concepts/poc-3-glm-integration/
+
+# Keep only POC-1 which we're deploying
+!proof-of-concepts/poc-1-public-data/
