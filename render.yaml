@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: archimedes-api
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements-deploy.txt
+    startCommand: cd proof-of-concepts/poc-1-public-data && uvicorn api_demo:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: GLM_API_KEY
+        sync: false
+    healthCheckPath: /health

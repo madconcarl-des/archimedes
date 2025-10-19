@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archimedes API - Local Access</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .status {
+            background: #2ecc71;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .button:hover {
+            background: #2980b9;
+        }
+        .info {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        code {
+            background: #34495e;
+            color: #ecf0f1;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .endpoint {
+            background: #fff;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Archimedes API - Local Server</h1>
+
+        <div class="status">
+            ✅ Server Status: RUNNING<br>
+            ✅ GLM-4.6: ENABLED<br>
+            ✅ Port: 8000
+        </div>
+
+        <h2>Quick Access Links</h2>
+        <div>
+            <a href="http://127.0.0.1:8000" class="button" target="_blank">📊 API Info</a>
+            <a href="http://127.0.0.1:8000/docs" class="button" target="_blank">📖 API Docs (Swagger)</a>
+            <a href="http://127.0.0.1:8000/redoc" class="button" target="_blank">📚 ReDoc</a>
+            <a href="http://127.0.0.1:8000/health" class="button" target="_blank">💚 Health Check</a>
+        </div>
+
+        <h2>Available Endpoints</h2>
+
+        <div class="endpoint">
+            <strong>GET /</strong> - API Information<br>
+            <code>http://127.0.0.1:8000</code>
+        </div>
+
+        <div class="endpoint">
+            <strong>GET /health</strong> - Health Check<br>
+            <code>http://127.0.0.1:8000/health</code>
+        </div>
+
+        <div class="endpoint">
+            <strong>GET /countries</strong> - Get Countries<br>
+            <code>http://127.0.0.1:8000/countries</code>
+        </div>
+
+        <div class="endpoint">
+            <strong>GET /indicators</strong> - Get Economic Indicators<br>
+            <code>http://127.0.0.1:8000/indicators</code>
+        </div>
+
+        <div class="endpoint">
+            <strong>POST /nlp/query</strong> - Natural Language Query (GLM-4.6)<br>
+            <code>http://127.0.0.1:8000/nlp/query</code>
+        </div>
+
+        <div class="endpoint">
+            <strong>POST /nlp/explain</strong> - AI Data Explanation (GLM-4.6)<br>
+            <code>http://127.0.0.1:8000/nlp/explain</code>
+        </div>
+
+        <h2>Test the API</h2>
+        <div class="info">
+            <p><strong>Click the buttons above to access the API!</strong></p>
+            <p>The <strong>"API Docs (Swagger)"</strong> button will take you to an interactive interface where you can test all endpoints.</p>
+        </div>
+
+        <h2>Using Command Line</h2>
+        <div class="info">
+            <p>Test API from Command Prompt:</p>
+            <code>curl http://127.0.0.1:8000</code>
+            <br><br>
+            <code>curl http://127.0.0.1:8000/health</code>
+        </div>
+
+        <h2>Documentation</h2>
+        <ul>
+            <li>Quick Start: <code>START.md</code></li>
+            <li>Complete Guide: <code>README_FINAL.md</code></li>
+            <li>Integration Guide: <code>docs/GLM_INTEGRATION.md</code></li>
+        </ul>
+    </div>
+
+    <script>
+        // Auto-check server status
+        fetch('http://127.0.0.1:8000/health')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Server is healthy:', data);
+            })
+            .catch(error => {
+                console.error('Server connection error:', error);
+                document.querySelector('.status').innerHTML = '⚠️ Server Status: Cannot Connect<br>Make sure the server is running!';
+                document.querySelector('.status').style.background = '#e74c3c';
+            });
+    </script>
+</body>
+</html>
